@@ -18,6 +18,6 @@ public class MainController {
 
 	@RequestMapping(value = "index", method = RequestMethod.GET)
 	public String get2() {
-		return "index";
+		return "main";
 	}
 }

@@ -14,8 +14,8 @@
 		<put-attribute name="body" value="/WEB-INF/templates/blank.jsp" />
 	</definition>
  
-	<definition name="/index" extends=".mainTemplate">
-		<put-attribute name="body" value="/index" />
+	<definition name="/main" extends=".mainTemplate">
+		<put-attribute name="body" value="main" />
 	</definition>
 
 	<definition name="/info/about" extends=".mainTemplate">
