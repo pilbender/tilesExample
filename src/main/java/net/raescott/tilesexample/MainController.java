@@ -1,6 +1,7 @@
 package net.raescott.tilesexample;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -12,12 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/", method = RequestMethod.GET)
 public class MainController {
 
+	@RequestMapping(value = "indexController", method = RequestMethod.GET)
 	public String get1() {
 		return "index";
 	}
 
-	@RequestMapping(value = "index", method = RequestMethod.GET)
-	public String get2() {
+	@RequestMapping(value = "mainController", method = RequestMethod.GET)
+	public String get2(ModelMap model) {
+		model.addAttribute("firstName", "Scott");
+		model.addAttribute("lastName", "Smith");
 		return "main";
 	}
 }

@@ -83,14 +83,12 @@
 	<!-- Let's add a default view resolver so we don't have to have everything
 	end in .html in order to pull up JSPs (HTML based web views).
 	Damn it, I can't seem to get this to populate with data. -->
-	<!--
 	<bean id="urlBasedViewRewsolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="order" value="2"/>
 		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	-->
 
 	<!-- Resolves logical view names returned by Controllers to Tiles; a view name to resolve is treated as the name of a tiles definition -->
 	<!--
@@ -100,19 +98,6 @@
 	-->
 
 	<!-- Configures the Tiles layout system -->
-	<!--
-	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
-		<property name="definitions">
-			<list>
-				<value>/WEB-INF/tiles-defs/templates.xml</value>
-			</list>
-		</property>
-	</bean>
-	<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver" >
-		<property name="order" value="0" />
-		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView" />
-	</bean>
-	-->
 	<bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer" id="tilesConfigurer">
 		<property name="definitions">
 			<list>
@@ -122,18 +107,9 @@
 		</property>
 	</bean>
 	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" id="tilesViewResolver">
+		<property name="order" value="1"/>
 		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
 	</bean>
-
-	<!--
-	<bean id="tilesConfigurer"
-          class="org.springframework.web.servlet.view.tiles2.TilesConfigurer"
-          p:definitions="/WEB-INF/tiles-defs/templates.xml" />
-
-	<bean id="tilesViewResolver"
-		  class="org.springframework.web.servlet.view.UrlBasedViewResolver"
-		  p:viewClass="org.springframework.web.servlet.view.tiles2.TilesView" />
-	-->
 
 	<!-- Enables FlowHandler URL mapping -->
 	<!--

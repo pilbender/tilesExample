@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+	"http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
     <head>
@@ -15,5 +15,10 @@
     </head>
     <body>
 		Main Page
+		First Name: ${firstName}
+		Last Name: ${lastName}
+		<p>
+			There are no tiles on this page, no templates.
+		</p>
     </body>
 </html>
