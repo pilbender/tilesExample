@@ -100,6 +100,7 @@
 	-->
 
 	<!-- Configures the Tiles layout system -->
+	<!--
 	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
 		<property name="definitions">
 			<list>
@@ -111,6 +112,28 @@
 		<property name="order" value="0" />
 		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView" />
 	</bean>
+	-->
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" id="tilesViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
+	</bean>
+	<bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer" id="tilesConfigurer">
+		<property name="definitions">
+			<list>
+        <!-- Scan views directory for Tiles configurations -->
+				<value>/WEB-INF/tiles-defs/templates.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!--
+	<bean id="tilesConfigurer"
+          class="org.springframework.web.servlet.view.tiles2.TilesConfigurer"
+          p:definitions="/WEB-INF/tiles-defs/templates.xml" />
+
+	<bean id="tilesViewResolver"
+		  class="org.springframework.web.servlet.view.UrlBasedViewResolver"
+		  p:viewClass="org.springframework.web.servlet.view.tiles2.TilesView" />
+	-->
 
 	<!-- Enables FlowHandler URL mapping -->
 	<!--

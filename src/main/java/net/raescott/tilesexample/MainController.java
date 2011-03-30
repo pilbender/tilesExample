@@ -9,28 +9,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Richard Scott Smith <scott@thescene.com>
  */
 @Controller
+@RequestMapping(value = "/", method = RequestMethod.GET)
 public class MainController {
 
-	/*
-	@RequestMapping(value = "page1", method = RequestMethod.GET)
 	public String get1() {
-		return "main";
-	}
-
-	@RequestMapping(value = "page2", method = RequestMethod.GET)
-	public String get2() {
 		return "index";
 	}
 
-	@RequestMapping(value = "page3", method = RequestMethod.GET)
-	public String get3() {
-		return "standardLayout";
+	@RequestMapping(value = "index", method = RequestMethod.GET)
+	public String get2() {
+		return "index";
 	}
-
-	@RequestMapping(value = "page4", method = RequestMethod.GET)
-	public String get4() {
-		return "/";
-	}
-	 *
-	 */
 }
