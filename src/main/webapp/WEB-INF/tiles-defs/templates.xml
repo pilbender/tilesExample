@@ -14,11 +14,11 @@
 		<put-attribute name="body" value="/WEB-INF/templates/blank.jsp" />
 	</definition>
  
-	<definition name="index" extends=".mainTemplate">
-		<put-attribute name="body" value="/WEB-INF/views/index.jsp" />
+	<definition name="/index" extends=".mainTemplate">
+		<put-attribute name="body" value="/index" />
 	</definition>
 
-	<definition name="info/about" extends=".mainTemplate">
+	<definition name="/info/about" extends=".mainTemplate">
 		<put-attribute name="body" value="/WEB-INF/views/info/about.jsp" />
 	</definition>
 	
