@@ -14,9 +14,15 @@
         <title>Main Page</title>
     </head>
     <body>
+		<p>
 		Main Page
+		</p>
+		<p>
 		First Name: ${firstName}
+		</p>
+		<p>
 		Last Name: ${lastName}
+		</p>
 		<p>
 			There are no tiles on this page, no templates.
 		</p>

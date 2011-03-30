@@ -80,16 +80,6 @@
 	</bean>
 	-->
 
-	<!-- Let's add a default view resolver so we don't have to have everything
-	end in .html in order to pull up JSPs (HTML based web views).
-	Damn it, I can't seem to get this to populate with data. -->
-	<bean id="urlBasedViewRewsolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="order" value="2"/>
-		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-		<property name="prefix" value="/WEB-INF/views/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
-
 	<!-- Resolves logical view names returned by Controllers to Tiles; a view name to resolve is treated as the name of a tiles definition -->
 	<!--
 	<bean id="tilesViewResolver" class="org.springframework.js.ajax.AjaxUrlBasedViewResolver">
@@ -106,10 +96,21 @@
 			</list>
 		</property>
 	</bean>
-	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver" id="tilesViewResolver">
+	<bean class="org.springframework.js.ajax.AjaxUrlBasedViewResolver" id="tilesViewResolver">
 		<property name="order" value="1"/>
-		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
+		<property name="viewClass" value="org.springframework.js.ajax.tiles2.AjaxTilesView"/>
 	</bean>
+
+	<!-- Let's add a default view resolver so we don't have to have everything
+	end in .html in order to pull up JSPs (HTML based web views).
+	Damn it, I can't seem to get this to populate with data. -->
+	<bean id="urlBasedViewRewsolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="order" value="2"/>
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
 
 	<!-- Enables FlowHandler URL mapping -->
 	<!--
