@@ -24,4 +24,9 @@ public class MainController {
 		model.addAttribute("lastName", "Smith");
 		return "main";
 	}
+
+	@RequestMapping(value = "footerController", method = RequestMethod.GET)
+	public String get3() {
+		return "footer";
+	}
 }
