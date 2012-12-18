@@ -32,54 +32,6 @@
 	<!-- Configures the @Controller programming model -->
 	<mvc:annotation-driven />
 
-	<!-- Forwards requests to the "/" resource to the "welcome" view -->
-	<!--
-	<mvc:view-controller path="/" view-name="index"/>
-	-->
-
-	<!-- Imports the configurations of the different infrastructure systems of the application -->
-	<!--
-	<import resource="applicationContext-security.xml" />
-	<import resource="applicationContext.xml" />
-	<import resource="facadeContext.xml" />
-	<import resource="assemblerContext.xml" />
-	<import resource="daoContext.xml" />
-	<import resource="webflowContext.xml" />
-	-->
-
-
-	<!-- Top level view resolver for different types of content.  It uses
-	headers and extensions on the URL.  For example, if the URL has no special ending,
-	then JSP is assumed.  If there is a .json on the end of the URL, then JSON
-	messages are returned. -->
-	<!--
-	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-		<property name="order" value="1"/>
-		<property name="mediaTypes">
-			<map>
-				<entry key="html" value="text/html"/>
-				<entry key="json" value="application/json" />
-			</map>
-		</property>
-		<property name="viewResolvers">
-			<list>
-				<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-					<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-					<property name="prefix" value="/WEB-INF/views/"/>
-					<property name="suffix" value=".jsp"/>
-				</bean>
-			</list>
-		</property>
-		<property name="defaultViews">
-			<list>
-				<bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
-					<property name="prefixJson" value="true"/>
-				</bean>
-			</list>
-		</property>
-	</bean>
-	-->
-
 	<!-- Resolves logical view names returned by Controllers to Tiles; a view name to resolve is treated as the name of a tiles definition -->
 	<!--
 	<bean id="tilesViewResolver" class="org.springframework.js.ajax.AjaxUrlBasedViewResolver">
@@ -88,83 +40,18 @@
 	-->
 
 	<!-- Configures the Tiles layout system -->
-	<bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer" id="tilesConfigurer">
-		<property name="definitions">
-			<list>
-        <!-- Scan views directory for Tiles configurations -->
-				<value>/WEB-INF/tiles-defs/templates.xml</value>
-			</list>
-		</property>
-		<!-- resolving preparer names as Spring bean definition names -->
-		<property name="preparerFactoryClass" value="org.springframework.web.servlet.view.tiles2.SpringBeanPreparerFactory"/>
-
-	</bean>
 	<bean class="org.springframework.js.ajax.AjaxUrlBasedViewResolver" id="tilesViewResolver">
 		<property name="order" value="1"/>
 		<property name="viewClass" value="org.springframework.js.ajax.tiles2.AjaxTilesView"/>
 	</bean>
-
-	<!-- Let's add a default view resolver so we don't have to have everything
-	end in .html in order to pull up JSPs (HTML based web views).
-	Damn it, I can't seem to get this to populate with data. -->
-	<bean id="urlBasedViewRewsolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="order" value="2"/>
-		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-		<property name="prefix" value="/WEB-INF/views/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
-
-
-	<!-- Enables FlowHandler URL mapping -->
-	<!--
-	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
-		<property name="flowExecutor" ref="flowExecutor" />
-	</bean>
-	-->
-	<!-- Maps request paths to flows in the flowRegistry;
-     e.g. a path of /hotels/booking looks for a flow with id "hotels/booking" -->
-	 <!--
-	<bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
-		<property name="flowRegistry" ref="flowRegistry"/>
-		<property name="order" value="0"/>
-	</bean>
-	-->
-
-	<!--
-	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-		<property name="alwaysUseFullPath" value="true" />
-		<property name="mappings">
-			<props>
-				<prop key="/User">User</prop>
-				<prop key="/**">urlFilenameViewController</prop>
-			</props>
+	<bean class="org.springframework.web.servlet.view.tiles2.TilesConfigurer" id="tilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/layouts/layouts.xml</value>
+        		<!-- Scan views directory for Tiles configurations -->
+				<value>/WEB-INF/views/**/views.xml</value>
+			</list>
 		</property>
 	</bean>
-	-->
-
-	<!--
-	<bean id="User" class="com.thescene.user.controller.UserController"/>
-	-->
-
-	<!--
-	<bean id="urlFilenameViewController" class="org.springframework.web.servlet.mvc.UrlFilenameViewController" />
-	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
-	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
-		<property name="order" value="0" />
-	</bean>
-
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-		<property name="messageConverters">
-			<util:list>
-				<ref bean="mappingJacksonHttpMessageConverter"/>
-			</util:list>
-		</property>
-	</bean>
-
-	<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
-	-->
-
-	<!-- Enable the configuration of transactional behavior based on annotations -->
-	<tx:annotation-driven transaction-manager="txManager" mode="aspectj" />
 
 </beans>
