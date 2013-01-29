@@ -13,5 +13,8 @@
     </head>
     <body>
 		This page does not go through a Spring Controller.
+		<p>
+			<a href="${pageContext.servletContext.contextPath}/mainController">Constructed with tiles</a>
+		</p>
     </body>
 </html>

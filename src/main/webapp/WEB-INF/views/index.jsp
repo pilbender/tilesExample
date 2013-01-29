@@ -15,7 +15,7 @@
 			There are no tiles on this page, no templates.
 		</p>
 		<p>
-			<a href="mainController">Constructed with tiles</a>
+			<a href="${pageContext.servletContext.contextPath}">Go back home</a>
 		</p>
     </body>
 </html>
