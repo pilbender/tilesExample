@@ -13,20 +13,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/", method = RequestMethod.GET)
 public class MainController {
 
-	@RequestMapping(value = "indexController", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public String get1() {
 		return "index";
 	}
 
+	@RequestMapping(value = "indexController", method = RequestMethod.GET)
+	public String get2() {
+		return "index";
+	}
+
 	@RequestMapping(value = "mainController", method = RequestMethod.GET)
-	public String get2(ModelMap model) {
+	public String get3(ModelMap model) {
 		model.addAttribute("firstName", "Scott");
 		model.addAttribute("lastName", "Smith");
 		return "main";
 	}
 
 	@RequestMapping(value = "footerController", method = RequestMethod.GET)
-	public String get3() {
+	public String get4() {
 		return "footer";
 	}
 }
