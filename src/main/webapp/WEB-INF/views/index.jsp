@@ -14,5 +14,8 @@
 		<p>
 			There are no tiles on this page, no templates.
 		</p>
+		<p>
+			<a href="mainController">Constructed with tiles</a>
+		</p>
     </body>
 </html>
