@@ -32,13 +32,6 @@
 	<!-- Configures the @Controller programming model -->
 	<mvc:annotation-driven />
 
-	<!-- Resolves logical view names returned by Controllers to Tiles; a view name to resolve is treated as the name of a tiles definition -->
-	<!--
-	<bean id="tilesViewResolver" class="org.springframework.js.ajax.AjaxUrlBasedViewResolver">
-		<property name="viewClass" value="org.springframework.webflow.mvc.view.FlowAjaxTilesView"/>
-	</bean>
-	-->
-
 	<!-- Top level view resolver for different types of content.  It uses
   headers and extensions on the URL.  For example, if the URL has no special ending,
   then JSP is assumed.  If there is a .json on the end of the URL, then JSON
@@ -53,9 +46,6 @@
 		</property>
 		<property name="viewResolvers">
 			<list>
-				<!--
-				<ref bean="viewResolver" />
-				-->
 				<ref bean="tilesViewResolver" />
 			</list>
 		</property>
@@ -67,18 +57,6 @@
 			</list>
 		</property>
 	</bean>
-
-	<!-- Let's add a default view resolver so we don't have to have everything
-	end in .html in order to pull up JSPs (HTML based web views).
-	Damn it, I can't seem to get this to populate with data. -->
-	<!--
-	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="order" value="2"/>
-		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-		<property name="prefix" value="/WEB-INF/views/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
-	-->
 
 	<!-- Resolves logical view names returned by Controllers to Tiles; a view name to resolve is treated as the name of a tiles definition -->
 	<bean id="tilesViewResolver" class="org.springframework.js.ajax.AjaxUrlBasedViewResolver">
