@@ -5,10 +5,10 @@
 	<definition name="main-template" template="/WEB-INF/layouts/standard.jsp">
 		<put-attribute name="title" value="Simple Tiles 2 Example" type="string" />
 		<put-attribute name="header" value="/WEB-INF/views/header.jsp" />
-		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
 		<!--
-		<put-attribute name="footer" value="/footerController" />
+		<put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
 		-->
+		<put-attribute name="footer" value="/footerController" />
 		<put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />
 	</definition>
 
@@ -21,4 +21,5 @@
 	<definition name="index" extends="main-template">
 		<put-attribute name="body" value="/WEB-INF/views/index.jsp" />
 	</definition>
+	<definition name="footer" template="/WEB-INF/views/footer.jsp" />
 </tiles-definitions>
