@@ -66,22 +66,8 @@
 			<tiles:insertAttribute name="header" ignore="true" />
 			<tiles:insertAttribute name="body" ignore="true" />
 
-			<tiles:insertAttribute name="adminUserForm" ignore="true" />
-			<tiles:insertAttribute name="userUserForm" ignore="true" />
-
-			<tiles:insertAttribute name="emailForm" ignore="true" />
-			<tiles:insertAttribute name="alertForm" ignore="true" />
-
 		</div>
 		<tiles:insertAttribute name="footer" ignore="true" />
-
-		<div id="dialog-delete" title="Confirm Delete" class="hidden">
-  			<p id="delete-message">Are you sure you would like to delete this record?</p>
-		</div>
-
-		<div id="dialog-alert" title="Alert Message" class="hidden">
-  			<p id="dialog-alert-message"></p>
-		</div>
 
 	</div>
 
